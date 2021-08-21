@@ -1,0 +1,245 @@
+//стили общие для любых разновидностей хидера
+.header {
+	position: fixed;
+	z-index: 9999;
+	width: 100%;
+	box-sizing: border-box;
+	top: 0px;
+
+	&__inner {
+		width: 100%;
+		//height: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		box-sizing: border-box;
+	}
+
+	.logo {
+		display: block;
+	}
+
+	.menu-icon {
+		display: none;
+	}
+
+	@media (max-width: 1000px) {
+		.menu-icon {
+			display: block;
+		}
+	}
+}
+
+//в этих стилях указываем координаты, размеры и наличие
+.headerClose {
+	.menu-list {
+		display: none;
+	}
+
+	@media (min-width: 1000px) {
+		.menu-list {
+			display: flex;
+			flex-direction: row;
+
+			a {
+				display: block;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.headerOpen {
+	.menu-list {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		z-index: 9998;
+		box-sizing: border-box;
+	}
+}
+//**************************************************
+//пользовательские кастомные стили
+.header {
+	padding: 0;
+
+	&__inner{
+		height: 130px;
+
+		@media (min-width: 786px) {
+			padding: 50px 5% 50px 5%;
+		}
+
+		@media (max-width: 785px) {
+			padding: 50px 15px 50px 15px;
+		}
+	}
+
+
+	.logo {
+		width: 146px;
+		height: 28px;
+	}
+
+	.menu-icon {
+		.line1 {
+			width: 10px;
+			height: 1px;
+			background-color: black;
+			margin-bottom: 5px;
+		}
+		.line2 {
+			width: 15px;
+			height: 1px;
+			background-color: black;
+			margin-bottom: 5px;
+		}
+		.line3 {
+			width: 20px;
+			height: 1px;
+			background-color: black;
+			margin-bottom: 5px;
+		}
+
+		&:hover {
+			& > * {
+				width: 20px;
+				background-color: blue;
+				transition-property: background-color, width;
+				transition-duration: 500ms;
+			}
+		}
+		&:not(hover) {
+			& > * {
+				transition-property: background-color, width;
+				transition-duration: 500ms;
+			}
+		}
+	}
+
+	.menu-list > * {
+		list-style-type: none;
+		margin-right: 40px;
+		font-size: 12px;
+		font-weight: bold;
+		text-decoration: none;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+.headerClose {
+	.menu-item > div {
+		width: 10px;
+		height: 2px;
+		display: inline-block;
+		position: relative;
+		top: -3px;
+		right: 10px;
+	}
+	.menu-item > a {
+		display: inline-block;
+	}
+
+	.menu-item {
+		&:hover {
+			div {
+				background-color: #1fbacc;
+				transition-property: background-color;
+				transition-duration: 500ms;
+			}
+		}
+		&:not(hover) {
+			div {
+				background-color: initial;
+				transition-property: background-color;
+				transition-duration: 500ms;
+			}
+		}
+	}
+}
+.headerOpen {
+	.menu-list {
+		width: 100%;
+		top: 100px;
+		left: 0px;
+		padding-top: 20px;
+		padding-left: 50px;
+		background-color: white;
+
+		.menu-item {
+			list-style-type: none;
+			margin-bottom: 20px;
+		}
+	}
+}
+//в этих стилях указываем оформление(цвета, фоны)
+.headerCloseBackground {
+	@media (min-width: 1000px) {
+		border-bottom: solid 1px #afb1bd;
+		transition-property: background-color;
+		transition-duration: 500ms;
+	}
+	@media (max-width: 1000px) {
+		border-bottom: none;
+		background-color: white;
+	}
+
+	.logo {
+		background-image: url(../image/logo.png);
+		@media (max-width: 1000px) {
+			background-image: url(../image/logo-dark.png);
+		}
+	}
+
+	.menu-icon {
+	}
+
+	.menu-list > * > a {
+		color: white;
+	}
+}
+
+.headerOpenBackground {
+	background-color: white;
+
+	.logo {
+		background-image: url(../img/logo.png);
+		@media (max-width: 1000px) {
+			background-image: url(../image/logo-dark.png);
+		}
+	}
+
+	.menu-icon {
+	}
+
+	.menu-list > * > a {
+		color: #5a5d62;
+		font-family: Hind, sans-serif;
+		font-size: 12px;
+		font-weight: bold;
+	}
+}
+
+.headerScrollBackground {
+	background-color: white;
+	transition-property: background-color;
+	transition-duration: 500ms;
+
+	.logo {
+		background-image: url(../image/logo-dark.png);
+	}
+
+	.menu-icon {
+	}
+
+	.menu-list > * > a {
+		color: #5b5d61;
+	}
+}
